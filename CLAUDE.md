@@ -1,0 +1,12 @@
+# Growth Ops Lab — rules for Claude Code
+- Owner: Vishnu (limited coding). You write/run code; explain only manual browser steps.
+- Personal, open portfolio: brand-neutral and usable by any kind of organisation. Nothing targeted at a particular company or industry. No client or employer names or data, ever.
+- DEMO_MODE=true means: synthetic or public data only; Meta events must include test_event_code; Google uploads are validate-only or dry-run; nothing hits a real ad account.
+- Every row written by a demo flow has is_demo=true.
+- Secrets live only in .env (local), GitHub Actions secrets, Supabase function secrets, or Make connections. Never commit them. Never print full secrets in logs.
+- Never set or use ANTHROPIC_API_KEY.
+- Make: webhook triggers only; never add polling/"Watch" modules (they burn credits).
+- Every external AI call needs a deterministic fallback.
+- Python via `uv run`. Tests via `uv run pytest`. Add a test for every calculation or parser.
+- After each phase: run checks, show proof, commit with a clear message, stop.
+- Record any limit/plan surprise in CHECKS.md with date.
