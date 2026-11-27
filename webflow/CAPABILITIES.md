@@ -12,7 +12,8 @@ Checked 2026-11-27. The tables below are from docs and search; see "Tried on our
 | Field names from inserted HTML | Not carried over; set through element settings |
 | New text inputs | Came out required by default; switched off for optional fields |
 | Add options to a select | No tool found; add by hand in the Designer |
-| Form Action URL | Left empty on purpose; set by hand |
+| Form Action URL | Set by hand (Send to → Custom Action, after removing the default destinations). Published and confirmed on Starter |
+| Published pages | Titles, descriptions, field names, dropdown values and POST action confirmed in live HTML; no sideways scroll at phone width; badge shown |
 
 **Confidence:** **Read** = the Webflow developer page was fetched and read. **Search** = taken from web-search summaries; Webflow's help centre refused automated fetching (403) and the pricing page could not be parsed.
 

@@ -23,7 +23,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | done | F0–F4 | Done |
 | 1 | F8 Make webhook | Done 2026-11-27: test lead accepted (200), Make shows "Successfully determined"; account noted below |
 | 1a | Webflow capability check | Done 2026-11-27 (docs only) |
-| 2 | F9 Webflow portfolio: Home + Contact | In progress: built via connector 2026-11-27. Needs dropdown options, Action URL, publish |
+| 2 | F9 Webflow portfolio: Home + Contact | Published 2026-11-27, live pages checked. Left: one test submission seen in Make; re-publish check (#4) |
 | 3 | F5 finish: Gemini model + ping | To do |
 | 3a | F10 slice: Pages, secrets, keepalive | To do |
 | 4 | P01 lead router | To do |
@@ -35,7 +35,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 
 - Make: plan = Free, credits = 1,000, active scenario limit = 2 (confirmed 2026-11-27)
 - Gemini model id: not chosen yet · RPD: not noted yet
-- Webflow site: `growth-ops-lab` (free Starter); URL to be recorded after first publish
+- Webflow site: https://growth-ops-lab.webflow.io (free Starter), first published 2026-11-27
 
 ## Surprises log
 
@@ -48,3 +48,4 @@ Dated notes on any limit or plan behaviour that differed from the plan.
 - 2026-11-26 · F5: marked done for key setup only. Before P01: set `GEMINI_MODEL`, note RPD, write and run `scripts/ping_gemini.py` (not written yet, so the key is untested).
 - 2026-11-27 · Webflow: the plan assumed all page building is manual. Webflow's MCP docs describe headless element-building tools; untested on our account.
 - 2026-11-27 · Scope: the portfolio is open to any organisation. The site is Home (portfolio overview) and Contact; plans and sample data are generic.
+- 2026-11-27 · F9: custom form action works on free Starter, but only after removing the default "Webflow" and "Email Notifications" destinations. A "Made in Webflow" badge shows on the live site.
