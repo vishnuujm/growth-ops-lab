@@ -23,7 +23,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | done | F0–F4 | Done |
 | 1 | F8 Make webhook | Done 2026-11-27: test lead accepted (200), Make shows "Successfully determined"; account noted below |
 | 1a | Webflow capability check | Done 2026-11-27 (docs only) |
-| 2 | F9 Webflow portfolio: Home + Contact | Published 2026-11-27, live pages checked. Left: one test submission seen in Make; re-publish check (#4) |
+| 2 | F9 Webflow portfolio: Home + Contact | Published 2026-11-27, live pages checked. Test submission from the live form arrived in Make (confirmed by owner 2026-11-27). Left: re-publish check (#4) |
 | 3 | F5 finish: Gemini model + ping | To do |
 | 3a | F10 slice: Pages, secrets, keepalive | To do |
 | 4 | P01 lead router | To do |
