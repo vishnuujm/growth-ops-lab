@@ -51,7 +51,9 @@ test("good enquiry: AI score saved, email lowercased, marked demo", async () => 
   const { send, calls } = setup();
   const { status, json } = await send(GOOD);
   assert.equal(status, 200);
-  assert.deepEqual(json, { lead_id: "new-id", email: "priya@northwind.example", score: 85, tier: "A", reason: "Good fit", scored_by: "gemini", is_duplicate: false });
+  const { slack_body, ...rest } = json;
+  assert.match(JSON.parse(slack_body).text, /^\[DEMO\] .*Grade A enquiry \(score 85\)/);
+  assert.deepEqual(rest, { lead_id: "new-id", email: "priya@northwind.example", score: 85, tier: "A", reason: "Good fit", scored_by: "gemini", is_duplicate: false });
   assert.equal(calls.leads[0].is_demo, true);
   assert.equal(calls.leads[0].source, "webflow_form");
   assert.equal(calls.headers[0].authorization, undefined);
@@ -133,4 +135,13 @@ test("database down gives 500 so Make can raise the alarm", async () => {
   const { send, calls } = setup({ dbDown: true });
   assert.equal((await send(GOOD)).status, 500);
   assert.equal(calls.logs[0].event, "submission_failed");
+});
+
+test("Slack message stays valid and cannot ping the channel", async () => {
+  const { send } = setup({ ai: aiSays({ score: 90, tier: "A", reason: 'Said "now" <!here>' }) });
+  const { json } = await send({ ...GOOD, company: 'Acme "North" <!channel> & Co\nLtd', first_name: "A\\B" });
+  const { text } = JSON.parse(json.slack_body);
+  assert.ok(!text.includes("<!"));
+  assert.ok(text.includes('Company: Acme "North" &lt;!channel&gt; &amp; Co Ltd'));
+  assert.equal(text.split("\n").length, 5);
 });

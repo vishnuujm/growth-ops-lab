@@ -164,6 +164,21 @@ async function findLead(deps: Deps, email: string): Promise<any | undefined> {
   return (await db(deps, "GET", query))[0];
 }
 
+// A ready-made Slack message, so Make never has to build JSON by hand (quotes or line
+// breaks typed into the form would break it). Slack's control characters are escaped.
+export function slackBody(lead: Lead, result: Score, isDemo: boolean): string {
+  const safe = (v: string | null) => (v ?? "-").replace(/\s+/g, " ").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const name = [lead.first_name, lead.last_name].filter(Boolean).join(" ") || null;
+  const text = [
+    `${isDemo ? "[DEMO] " : ""}\u{1F525} Grade ${result.tier} enquiry (score ${result.score})`,
+    `Name: ${safe(name)}`,
+    `Company: ${safe(lead.company)}`,
+    `Email: ${safe(lead.email)}`,
+    `Why: ${safe(result.reason)}`,
+  ].join("\n");
+  return JSON.stringify({ text });
+}
+
 async function scoreAndSave(incoming: Lead, isDemo: boolean, deps: Deps) {
   let existing = await findLead(deps, incoming.email);
   const lead = existing ? merge(existing, incoming) : incoming;
@@ -197,7 +212,7 @@ async function scoreAndSave(incoming: Lead, isDemo: boolean, deps: Deps) {
     lead_id: saved.id, tier: result.tier, scored_by: scoredBy, is_duplicate: Boolean(existing), is_demo: isDemo,
     ...(aiError ? { ai_error: aiError } : {}),
   });
-  return { lead_id: saved.id, email: lead.email, ...result, scored_by: scoredBy, is_duplicate: Boolean(existing) };
+  return { lead_id: saved.id, email: lead.email, ...result, scored_by: scoredBy, is_duplicate: Boolean(existing), slack_body: slackBody(lead, result, isDemo) };
 }
 
 export function createHandler(deps: Deps) {
