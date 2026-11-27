@@ -104,7 +104,7 @@ P01 Phase 1.
 1. Write p01-lead-router/icp.yaml as a default fit profile that any organisation can edit (brand-neutral, no industry assumed):
    - company_size weights (51-200 and 201-1000 highest), role seniority keywords (head, director, vp, founder, manager, lead → points; intern/student → negative),
    - timeline weights (now > 1-3m > 3-6m > exploring),
-   - use_case signals: positive keywords (automate, improve, replace, scale, integrate, reporting, CRM, pipeline) and junk signals (test, asdf, free, job, internship),
+   - use_case signals: positive keywords (automate, improve, replace, scale, integrate, reporting, CRM, pipeline) and junk signals (test, asdf, job, internship; "free" removed after review because it penalised real needs such as "free up time"),
    - free-email domains list (gmail, yahoo, outlook, hotmail, proton) → small penalty,
    - thresholds: A ≥ 70, B 40–69, C < 40.
 2. Write supabase/functions/score-lead/rules.ts implementing it (pure function, returns {score,tier,reason}).

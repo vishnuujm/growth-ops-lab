@@ -34,6 +34,7 @@ EDGE_CASES = [
     {"use_case": "automate automation automating"},
     {"use_case": "automate improve replace scale integrate reporting crm pipeline"},
     {"use_case": "latest contest"},
+    {"use_case": "We want to free up time"},
     {"email": "a@b@GMAIL.com"},
     {"email": "no-at-sign"},
 ]
@@ -96,3 +97,9 @@ def test_student_outweighs_manager_and_empty_is_explained():
 
 def test_reason_is_short():
     assert all(len(rules.score_lead(l, ICP)["reason"]) <= 200 for l in LEADS)
+
+
+def test_free_up_time_is_not_treated_as_junk():
+    result = score(use_case="We want to free up time and automate follow-up")
+    assert result["score"] == ICP["use_case"]["points_per_need"]
+    assert "junk" not in result["reason"].lower()

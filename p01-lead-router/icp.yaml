@@ -37,7 +37,7 @@ use_case:
     - [report, reports, reporting]
     - [crm]
     - [pipeline]
-  junk: { points: -30, words: [test, asdf, free, job, internship] }
+  junk: { points: -30, words: [test, asdf, job, internship] }
 
 free_email:
   points: -5
