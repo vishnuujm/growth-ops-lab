@@ -145,3 +145,9 @@ test("Slack message stays valid and cannot ping the channel", async () => {
   assert.ok(text.includes('Company: Acme "North" &lt;!channel&gt; &amp; Co Ltd'));
   assert.equal(text.split("\n").length, 5);
 });
+
+test("the AI is told not to quote points or totals", async () => {
+  const { send, calls } = setup();
+  await send(GOOD);
+  assert.match(calls.ai[0].contents[0].parts[0].text, /Never mention points, totals, scores/);
+});

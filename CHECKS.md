@@ -26,7 +26,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | 2 | F9 Webflow portfolio: Home + Contact | Done 2026-11-27: published, live pages checked, test submission arrived in Make, form address survived re-publish |
 | 3 | F5 finish: Gemini model + ping | Done 2026-11-27 (daily limit still to be noted) |
 | 3a | F10 slice: Pages, secrets, keepalive | Done 2026-11-27: https://vishnuujm.github.io/growth-ops-lab/ and thanks.html load; 8 secrets stored; manual keepalive run green. Scheduled run not yet observed |
-| 4 | P01 lead router | In progress: stage 1 (scoring rules) done 2026-11-27, 15/15 made-up people match; rules approved by owner after removing "free" from junk words. Stage 2 done: score-lead live; good/junk/repeat/wrong password/bad email/AI failure all passed. Stage 3: reply now carries a ready Slack message; Make guide written; Make build not yet done |
+| 4 | P01 lead router | In progress: stage 1 (scoring rules) done 2026-11-27, 15/15 made-up people match; rules approved by owner after removing "free" from junk words. Stage 2 done: score-lead live; good/junk/repeat/wrong password/bad email/AI failure all passed. Stage 3: reply now carries a ready Slack message; Make scenario built; end-to-end test passed 2026-11-27 (reply, database, HubSpot test account, Slack). Not yet switched on |
 | 5 | P10 organic drop monitor | To do |
 | 6 | Demo scripts (F9, P01, P10) | To do |
 | later | F6, F7, rest of F10, F11, P02–P09 | Later |
