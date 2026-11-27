@@ -4,7 +4,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 
 | # | Check | How | Result | If it fails |
 |---|---|---|---|---|
-| 1 | Make webhook is instant on free | P01 phase 3 test | | Report; still fine with "Run once" demos |
+| 1 | Make webhook is instant on free | P01 phase 3 test | **Pass** (2026-11-27): live website submissions processed straight away with the scenario active on the free plan | Report; still fine with "Run once" demos |
 | 2 | HubSpot test account has Workflows | F4 step 3 | **Pass** (2026-11-26): yes, Create workflow is available (Marketing Hub Enterprise trial) | P02 uses `qualify.py` fallback trigger |
 | 3 | Meta "Generate access token" visible | F7 step 3 | Later | Business settings → give yourself full control |
 | 4 | Webflow form custom action saves and survives re-publish | P01 phase 4 | **Pass** (2026-11-27): address and dropdown values still correct after publishing again (no Designer edit in between) | Re-enter action URL after each Designer save; or move the form to GitHub Pages |
@@ -26,7 +26,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | 2 | F9 Webflow portfolio: Home + Contact | Done 2026-11-27: published, live pages checked, test submission arrived in Make, form address survived re-publish |
 | 3 | F5 finish: Gemini model + ping | Done 2026-11-27 (daily limit still to be noted) |
 | 3a | F10 slice: Pages, secrets, keepalive | Done 2026-11-27: https://vishnuujm.github.io/growth-ops-lab/ and thanks.html load; 8 secrets stored; manual keepalive run green. Scheduled run not yet observed |
-| 4 | P01 lead router | In progress: stage 1 (scoring rules) done 2026-11-27, 15/15 made-up people match; rules approved by owner after removing "free" from junk words. Stage 2 done: score-lead live; good/junk/repeat/wrong password/bad email/AI failure all passed. Stage 3: reply now carries a ready Slack message; Make scenario built; end-to-end test passed 2026-11-27 (reply, database, HubSpot test account, Slack). Not yet switched on |
+| 4 | P01 lead router | In progress: stage 1 (scoring rules) done 2026-11-27, 15/15 made-up people match; rules approved by owner after removing "free" from junk words. Stage 2 done: score-lead live; good/junk/repeat/wrong password/bad email/AI failure all passed. Stage 3: reply now carries a ready Slack message; Make scenario built; end-to-end test passed 2026-11-27 (reply, database, HubSpot test account, Slack). Switched on and tested from the live website 2026-11-27: Slack alert arrived; a double click made 2 alerts but 1 database record and 1 HubSpot contact. Left: blueprint export, failure path, seed run, nightly tidy-up, write-up |
 | 5 | P10 organic drop monitor | To do |
 | 6 | Demo scripts (F9, P01, P10) | To do |
 | later | F6, F7, rest of F10, F11, P02–P09 | Later |
@@ -51,3 +51,4 @@ Dated notes on any limit or plan behaviour that differed from the plan.
 - 2026-11-27 · F9: custom form action works on free Starter, but only after removing the default "Webflow" and "Email Notifications" destinations. A "Made in Webflow" badge shows on the live site.
 - 2026-11-27 · F10: the first three Pages runs failed ("No artifacts named github-pages" twice, "Deployment failed" once) with GitHub reporting no incidents. Splitting into separate build and deploy jobs then succeeded; the exact cause was not confirmed.
 - 2026-11-27 · P01: the Supabase tool refuses to change the live project from an automated run without explicit approval (`--yes`); owner approved the first publish.
+- 2026-11-27 · P01: a double click on the form sends two submissions: one record and one contact, but two Slack alerts and double the Make credits.
