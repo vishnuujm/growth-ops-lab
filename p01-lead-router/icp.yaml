@@ -1,0 +1,51 @@
+# Default fit profile: who counts as a promising enquiry.
+# Edit the numbers or words here, then run:  uv run p01-lead-router/build_icp.py
+# Matching ignores capital letters and works on whole words only.
+
+thresholds:          # score is always kept between 0 and 100
+  A: 70              # 70 and above
+  B: 40              # 40 to 69. Below 40 is C
+
+company_size:
+  "1-10": 5
+  "11-50": 15
+  "51-200": 25
+  "201-1000": 25
+  "1000+": 15
+
+role:
+  negative: { points: -20, words: [intern, student], label: "student or intern" }
+  senior:   { points: 25, words: [head, director, vp, "vice president", founder, cofounder, owner, chief, ceo, coo, cmo, cto], label: "senior role" }
+  manager:  { points: 15, words: [manager, lead], label: "manager role" }
+  other:    { points: 5, label: "role given" }
+
+timeline:
+  now:       { points: 25, label: "wants to start now" }
+  1-3m:      { points: 18, label: "starting in 1-3 months" }
+  3-6m:      { points: 10, label: "starting in 3-6 months" }
+  exploring: { points: 3,  label: "just exploring" }
+
+use_case:
+  points_per_need: 8
+  max_points: 25
+  needs:             # each line counts once, however many of its words appear
+    - [automate, automating, automation]
+    - [improve, improving, improvement]
+    - [replace, replacing, replacement]
+    - [scale, scaling]
+    - [integrate, integrating, integration]
+    - [report, reports, reporting]
+    - [crm]
+    - [pipeline]
+  junk: { points: -30, words: [test, asdf, free, job, internship] }
+
+free_email:
+  points: -5
+  domains: [gmail.com, yahoo.com, yahoo.co.in, outlook.com, hotmail.com, proton.me, protonmail.com]
+
+size_labels:
+  "1-10": "very small team"
+  "11-50": "small team"
+  "51-200": "mid-size team"
+  "201-1000": "large team"
+  "1000+": "very large organisation"

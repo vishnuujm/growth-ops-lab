@@ -1,0 +1,16 @@
+case,email,expected_tier
+A1,priya.shah@northwind.example,A
+A2,marco.rossi@bluepeak.example,A
+A3,aisha.khan@lumen.example,A
+A4,daniel.okafor@harbor.example,A
+A5,mei.tan@cedar.example,A
+B1,sam.lee@orchard.example,B
+B2,nina.verma@quartz.example,B
+B3,omar.haddad@gmail.com,B
+B4,lena.fischer@meadow.example,B
+B5,ravi.menon@summit.example,B
+C1,asdf@asdf.example,C
+C2,gol-synthetic-student@gmail.com,C
+C3,gol-synthetic-browser@yahoo.com,C
+C4,kim.cho@pebble.example,C
+DUP,Priya.Shah@Northwind.example,A
