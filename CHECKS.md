@@ -8,7 +8,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | 2 | HubSpot test account has Workflows | F4 step 3 | **Pass** (2026-11-26): yes, Create workflow is available (Marketing Hub Enterprise trial) | P02 uses `qualify.py` fallback trigger |
 | 3 | Meta "Generate access token" visible | F7 step 3 | Later | Business settings → give yourself full control |
 | 4 | Webflow form custom action saves and survives re-publish | P01 phase 4 | **Pass** (2026-11-27): address and dropdown values still correct after publishing again (no Designer edit in between) | Re-enter action URL after each Designer save; or move the form to GitHub Pages |
-| 5 | Gemini free model + RPD noted | F5 | **Pending**: key saved 2026-11-26 (`growth-ops-lab` project, free tier). Model id + RPD to be set at build-order step 3 | Rules fallback handles it |
+| 5 | Gemini free model + RPD noted | F5 | **Model passed** (2026-11-27): `gemini-3.5-flash-lite`, free tier, 15 RPM, 250K TPM, test call OK. RPD still to be noted | Rules fallback handles it |
 | 6 | BigQuery billing linked? | F6 | Later | Budget alert set |
 | 7 | Own Google Ads account can be created without billing + UPLOAD_CLICKS conversion action | P02 phase 5 | Later | P02 stays at level L0 (offline payload validation) |
 | 8 | Supabase project count ≤ 2 | F2 | 2026-11-26: `growth-ops-lab` created, tables + RLS verified. Projects in this account: 1 (≤ 2, pass) | Pause an unused project |
@@ -24,7 +24,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | 1 | F8 Make webhook | Done 2026-11-27: test lead accepted (200), Make shows "Successfully determined"; account noted below |
 | 1a | Webflow capability check | Done 2026-11-27 (docs only) |
 | 2 | F9 Webflow portfolio: Home + Contact | Done 2026-11-27: published, live pages checked, test submission arrived in Make, form address survived re-publish |
-| 3 | F5 finish: Gemini model + ping | To do |
+| 3 | F5 finish: Gemini model + ping | Done 2026-11-27 (daily limit still to be noted) |
 | 3a | F10 slice: Pages, secrets, keepalive | To do |
 | 4 | P01 lead router | To do |
 | 5 | P10 organic drop monitor | To do |
@@ -34,7 +34,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 ## Account notes
 
 - Make: plan = Free, credits = 1,000, active scenario limit = 2 (confirmed 2026-11-27)
-- Gemini model id: not chosen yet · RPD: not noted yet
+- Gemini model id: `gemini-3.5-flash-lite` · RPM: 15 · RPD: to be noted
 - Webflow site: https://growth-ops-lab.webflow.io (free Starter), first published 2026-11-27
 
 ## Surprises log
