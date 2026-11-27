@@ -25,7 +25,7 @@ Results of verifying free-tier limits and plan assumptions. Fill in **Result** a
 | 1a | Webflow capability check | Done 2026-11-27 (docs only) |
 | 2 | F9 Webflow portfolio: Home + Contact | Done 2026-11-27: published, live pages checked, test submission arrived in Make, form address survived re-publish |
 | 3 | F5 finish: Gemini model + ping | Done 2026-11-27 (daily limit still to be noted) |
-| 3a | F10 slice: Pages, secrets, keepalive | To do |
+| 3a | F10 slice: Pages, secrets, keepalive | Done 2026-11-27: https://vishnuujm.github.io/growth-ops-lab/ and thanks.html load; 8 secrets stored; manual keepalive run green. Scheduled run not yet observed |
 | 4 | P01 lead router | To do |
 | 5 | P10 organic drop monitor | To do |
 | 6 | Demo scripts (F9, P01, P10) | To do |
@@ -49,3 +49,4 @@ Dated notes on any limit or plan behaviour that differed from the plan.
 - 2026-11-27 · Webflow: the plan assumed all page building is manual. Webflow's MCP docs describe headless element-building tools; untested on our account.
 - 2026-11-27 · Scope: the portfolio is open to any organisation. The site is Home (portfolio overview) and Contact; plans and sample data are generic.
 - 2026-11-27 · F9: custom form action works on free Starter, but only after removing the default "Webflow" and "Email Notifications" destinations. A "Made in Webflow" badge shows on the live site.
+- 2026-11-27 · F10: the first three Pages runs failed ("No artifacts named github-pages" twice, "Deployment failed" once) with GitHub reporting no incidents. Splitting into separate build and deploy jobs then succeeded; the exact cause was not confirmed.
